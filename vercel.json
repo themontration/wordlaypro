@@ -1,6 +1,7 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/relay/:path*", "destination": "/api/index" }
+    { "source": "/relay/:path*", "destination": "/api/index" },
+    { "source": "/relay", "destination": "/api/index" }
   ]
 }
