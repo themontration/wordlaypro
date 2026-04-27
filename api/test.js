@@ -1,3 +1,6 @@
-export default function handler(req, res) {
-  res.status(200).send("hello");
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/test" }
+  ]
 }
