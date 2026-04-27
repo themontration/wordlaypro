@@ -24,15 +24,9 @@ export default async function handler(req) {
   }
 
   try {
-    let pathname = new URL(req.url).pathname;
-
-    if (pathname.startsWith("/relay/")) {
-      pathname = pathname.slice(7);
-    } else if (pathname === "/relay") {
-      pathname = "/";
-    }
-
-    const targetUrl = TARGET_BASE + (pathname.startsWith("/") ? pathname : "/" + pathname);
+    const pathStart = req.url.indexOf("/", 8);
+    const targetUrl =
+      pathStart === -1 ? TARGET_BASE + "/" : TARGET_BASE + req.url.slice(pathStart);
 
     const out = new Headers();
     let clientIp = null;
